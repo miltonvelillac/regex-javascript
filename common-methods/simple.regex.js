@@ -7,8 +7,8 @@ function compareUsingTest() {
 function compareUsingExec() {
     // returns an array of matches
     const regex1 = /hello/;
-    console.log('using exec', regex1.exec('say hello world')); // return true
-    console.log('using exec', regex1.exec('say hi world')); // return false
+    console.log('using exec', regex1.exec('say hello world'));
+    console.log('using exec', regex1.exec('say hi world'));
 
     /**
      * we get an array

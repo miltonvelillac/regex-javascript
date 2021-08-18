@@ -7,10 +7,74 @@ function wildCharacter() {
      */
     const regex1 = /h.t/g;
     const text = 'how it that so hot, h@t h t';
-    console.log('using test', regex1.exec(text));
-    console.log('using test', regex1.exec(text));
-    console.log('using test', regex1.exec(text));
-    console.log('using test', regex1.exec(text));
-    console.log('using test', regex1.exec(text)); // null
+    console.log('using wildCharacter', regex1.exec(text));
+    console.log('using wildCharacter', regex1.exec(text));
+    console.log('using wildCharacter', regex1.exec(text));
+    console.log('using wildCharacter', regex1.exec(text));
+    console.log('using wildCharacter', regex1.exec(text)); // null
     // check: each time when the exec method runs, the regex continue after the last index when it matched
 }
+
+function escapingCharacter() {
+    /**
+     * If we want to use anyspecial character ^$.*+?=!:|\/()[]{} as a literal value we can use the escaping character \
+     */
+
+    const regex1 = /d\./g;
+    const text = 'This could be the final word.'; // in this case only should match the last of the sentece wor[d.]
+    console.log(regex1.exec(text));
+}
+
+function controlCharacters() {
+    /**
+     * \t -> tab
+     * \v -> vertical tab
+     * \n -> newline
+     * \r -> carriage return
+     */
+}
+
+function firstExercise() {
+    /**     
+     * Using the provided array, create a second array that only includes the numbers with the 801 area code. (The area code is the first 3 numbers.)
+     */
+    
+    let phoneNums = ["801-766-9754", "801-545-5454", "435-666-1212", "801-796-8010", "435-555-9801", "801-009-0909", "435-222-8013", "801-777-6655", "701-801-9754"];
+    const regex = /801-...-/;
+    const phoneNumbsFiltered = phoneNums.filter(phone => regex.test(phone));
+    console.log('firstExercise', phoneNumbsFiltered);
+}
+
+function secondExercise() {
+    /*
+    * Using the provided array, create a second array that only includes the numbers with the 801 area code. (The area code is the first 3 numbers.) Make sure that the phone numbers are valid (nnn-nnn-nnnn).
+    */
+    
+    let phoneNums = ["801-766-9754", "801-545-5454", "435-666-1212", "801-796-8010", "435-555-9801", "801-009-0909", "435-222-8013", "801-777-66553", "801-777-665-", "801-77A-6655", "801-778-665"];
+    const regex = /\d\d\d-\d\d\d-\d\d\d\d/;
+    const phoneNumbsFiltered = phoneNums.filter(phone => regex.test(phone));
+    console.log('secondExercise', phoneNumbsFiltered);
+}
+
+(function thirdExercise() {
+    /*
+        Validate phone numbers entered into the text field. As the number is entered, check to see if it matches these formats: (nnn)-nnn-nnnn, nnn.nnn.nnnn, nnn-nnn-nnnn, nnnnnnnnnn, (nnn)nnn-nnnn. If the number matches, change the text color from red to green.
+
+        Use several different phone numbers to test.
+
+        HINT: You can use the keyup event to respond to entered text. There is a CSS Class for red and green.
+    */
+    const regex = /\(?\d{3}\)?[-.]?\d{3}[-.]?\d{4,5}/;
+    const input = document.getElementById('thirdExercise');
+    
+    input.addEventListener('keyup', () => {
+        const inputValue = input.value;
+        const phoneNumbsFiltered = regex.test(inputValue);
+        const textColor = phoneNumbsFiltered ? 'blue'  : 'red';
+
+        console.log('thirdExercise', phoneNumbsFiltered);
+        document.getElementById('resultThirdExercise').innerHTML = inputValue;
+        document.getElementById('resultThirdExercise').style.color = textColor;        
+    });
+})();
+
