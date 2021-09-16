@@ -36,3 +36,8 @@ with both the regex will search at the beginning of each line (^) and at the end
 | Pipes, work as or, ex: \b(monday|tuesday|wednesday|thursda|friday|saturday|sunday)\b/ig
 ?: Non-capturing group
 \2 (repeat the second capturing group)
+
+* Lookaheadgropus
+it uses the lookhaad part to match the patter but it doesn't return that part
+?= positive lookahead
+?! negative lookahead

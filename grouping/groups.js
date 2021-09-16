@@ -16,3 +16,38 @@ function getDate() {
         console.error('Wrong format');
     }
 }
+
+function Lookaheadgropus() {
+    const data = 'http://allthingsjavascript.com http://google.com youtube.com';
+
+    const reg = /\w+(?=\.com)/g;    
+    const arr = data.match(reg);
+    console.log(arr);
+}
+
+function LookaheadPassword() {
+    const correctPassword = 'Mypassword99';
+    const wrongPassword = 'mypassword99';
+    const wrongPassword2 = 'Mypassword';
+    const wrongPassword3 = 'Mypae99';
+    const wrongPassword4 = 'MYPASSWORD99';
+    const wrongPassword5 = 'Mypasswo rd99';
+
+    const reg = /^(?=.{8,})(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?!.*\s).*$/;    
+    const arr = correctPassword.match(reg);
+    console.log(arr);
+}
+
+function exercise() {const correctPassword = 'Mypassword99';
+    const data = ["Jensen, Dale", "Smith, Andrea", "Jorgensen, Michael", "Vasefi, Annika", "Lopez, Monica", "Crockett, Steven"]; 
+    const reg = /^(\w+),\s*(\w+)?/;  
+    
+    let newData = data.map(val => {
+        let arr = reg.exec(val);
+        if (arr !== null) {
+            return arr[2] + ' ' + arr[1];
+        }
+    });
+
+    console.log(newData);
+}
