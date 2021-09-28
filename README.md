@@ -11,7 +11,7 @@ There are two ways to create reguar expresions
 \s [ \t\r\n] The white space
 \D [^0-9] Numbers Negation
 \W [^a-zA-Z0-9_]  word characters Negation
-\S [^ \t\r\n] The white space Negation
+\S [^ \t\r\n] The white space Negation  
 
 * Indicating Character Repitition
 1. + Matches one or more occurrences
@@ -41,3 +41,6 @@ with both the regex will search at the beginning of each line (^) and at the end
 it uses the lookhaad part to match the patter but it doesn't return that part
 ?= positive lookahead
 ?! negative lookahead
+
+* Unicode characters
+\ucode ex: \0065

@@ -42,12 +42,14 @@ function exercise() {const correctPassword = 'Mypassword99';
     const data = ["Jensen, Dale", "Smith, Andrea", "Jorgensen, Michael", "Vasefi, Annika", "Lopez, Monica", "Crockett, Steven"]; 
     const reg = /^(\w+),\s*(\w+)?/;  
     
-    let newData = data.map(val => {
-        let arr = reg.exec(val);
-        if (arr !== null) {
-            return arr[2] + ' ' + arr[1];
-        }
-    });
+    // let newData = data.map(val => {
+    //     let arr = reg.exec(val);
+    //     if (arr !== null) {
+    //         return arr[2] + ' ' + arr[1];
+    //     }
+    // });
+
+    let newData = data.map(val => val.replace(/(\w+), (\w+)/, '$2 $1'));
 
     console.log(newData);
 }
